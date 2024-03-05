@@ -8,6 +8,9 @@ import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import ThemeContext from "./utils/ThemeContext";
+import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -17,12 +20,14 @@ const AppLayout = () => {
   const [themeMode, setThemeMode] = useState(false)
 
   return (
+    <Provider store={appStore}>
     <ThemeContext.Provider value={{mode:themeMode, setThemeMode}}>
     <div className="app">
       <Header />
       <Outlet />
     </div>
     </ThemeContext.Provider>
+    </Provider>
   );
 };
 
@@ -50,6 +55,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: <Suspense fallback="Loading..."><Grocery /></Suspense>,
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       }
     ],
     errorElement: <Error />
