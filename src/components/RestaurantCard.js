@@ -7,18 +7,14 @@ const RestaurantCard = (props) => {
     name,
     cloudinaryImageId,
     cuisines,
-    costForTwo,
-    deliveryTime,
     avgRating,
   } = info;
   return (
     <div className="flex flex-col justify-center p-2  text-sm/[2]">
       <img className="w-[100%] h-[120] object-cover rounded-md" src={`${CDN_URL}${cloudinaryImageId}`} />
       <h4 className="pt-2 font-mono font-black"> {name}</h4>
-      <h4 className="pt-1 font-semibold">{avgRating} stars</h4>
+      <h4 className="pt-1 text-[12px] text-center font-semibold border-2 bg-[#f0f1f0] rounded-md w-[50px]">{avgRating} ⭐</h4>
       <h5 className="pt-1">{cuisines.splice(0,3).join(", ")}</h5>
-      <h5 className="pt-1">{costForTwo}</h5>
-      <h5 className="pt-1">{deliveryTime === undefined ? 45 : 15 } Mins Delivery</h5>
     </div>
   );
 };

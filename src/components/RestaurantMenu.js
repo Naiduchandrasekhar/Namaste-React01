@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
 
 
   return (
-    <div className="">
+    <div className="mt-[70px]">
       <div className="p-4 flex justify-center items-center bg-[#121111] text-white mb-3">
         <div>
           <img

@@ -50,7 +50,7 @@ const Body = () => {
   return listRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className={mode ? "bg-black min-h-[100vh] text-white p-4" : "bg-white min-h-[100vh] text-black p-4"}>
+    <div className={`${mode ? "bg-black min-h-[100vh] text-white p-4" : "bg-white min-h-[100vh] text-black p-4"} mt-[70px]`}>
       <div className="flex justify-between items-center w-[500]   pb-4">
         <div className="ml-12">
           <input
@@ -106,7 +106,7 @@ const Body = () => {
           filterRestaurant.map((restaurant) => {
             return (
               <Link
-                className={`${mode ? "bg-[#333232] text-white": "bg-white  text-black"} w-[220] rounded-lg h-[350]  m-2 bg-[#f0f0f0] hover:border-2 border-solid border-neutral-800 shadow-lg`}
+                className={`${mode ? "bg-[#444040] text-white": "bg-white  text-black"} w-[250px] rounded-lg h-[280px] m-2 hover:border-2 border-solid border-neutral-800 shadow-lg`}
                 to={"restaurant/" + restaurant.info.id}
                 key={restaurant.info.id}
               >

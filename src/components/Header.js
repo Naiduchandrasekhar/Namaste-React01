@@ -3,15 +3,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import ThemeContext from "../utils/ThemeContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [login, setLogin] = useState(true);
 
   const { mode, setThemeMode } = useContext(ThemeContext);
-  
+
+  const cartItems = useSelector((store) => store.cart.totalItemCount)
+
 
   return (
-    <div className={`${mode ? "bg-[#575252] text-white": "bg-[#2e9e9]  text-black"} flex justify-between items-center bg-[#b8bcbe41] shadow-lg`}>
+    <div className={`${mode ? "bg-[#040404] text-white": "bg-[rgb(255,255,255)] text-black"} flex justify-between items-center  shadow-lg  top-0 fixed w-[100%] overflow-hidden`}>
       <div>
         <Link to="/about">
           <img className="w-[70]" src={LOGO_URL} />
@@ -42,7 +45,11 @@ const Header = () => {
               Grocery
             </Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4">
+            <Link to="/cart" >
+              Cart-(Items: {cartItems})
+            </Link>
+          </li>
           <button
             onClick={() => {
               setLogin((prev) => {
