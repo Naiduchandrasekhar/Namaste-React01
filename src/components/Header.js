@@ -12,7 +12,6 @@ const Header = () => {
 
   const cartItems = useSelector((store) => store.cart.totalItemCount)
 
-
   return (
     <div className={`${mode ? "bg-[#040404] text-white": "bg-[rgb(255,255,255)] text-black"} flex justify-between items-center  shadow-lg  top-0 fixed w-[100%] overflow-hidden`}>
       <div>
