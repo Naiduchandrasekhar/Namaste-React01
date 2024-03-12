@@ -47,7 +47,7 @@ const Header = () => {
           </li>
           <li className="px-4">
             <Link to="/cart" >
-              Cart-(Items: {cartItems})
+              🛒-(Items: {cartItems})
             </Link>
           </li>
           <button

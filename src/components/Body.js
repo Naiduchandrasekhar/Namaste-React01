@@ -51,7 +51,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className={`${mode ? "bg-black min-h-[100vh] text-white p-4" : "bg-white min-h-[100vh] text-black p-4"} mt-[70px]`}>
-      <div className="flex justify-between items-center w-[500]   pb-4">
+      <div className="flex justify-between items-center w-[550]   pb-4">
         <div className="ml-12">
           <input
             onChange={(e) => {
@@ -59,7 +59,7 @@ const Body = () => {
             }}
             value={searchText}
             type="search"
-            className="outline-none border-solid border-2 mr-4 text-black"
+            className="outline-none border-solid border-2 mr-4 text-black rounded-lg p-[5px]"
             placeholder="type any restaurant"
           />
           <button
@@ -77,7 +77,7 @@ const Body = () => {
                 setErrorMessage(false);
               }
             }}
-            className="border-2 bg-gray-500 text-[white] hover:bg-white hover:text-black p-[3] rounded-md"
+            className="border-2 bg-gray-500 text-[white] hover:bg-white hover:text-black p-[3] w-[100px] rounded-md "
           >
             {errorMessage ? "ClicK For Restaurants" : "Search"}
           </button>
@@ -106,7 +106,7 @@ const Body = () => {
           filterRestaurant.map((restaurant) => {
             return (
               <Link
-                className={`${mode ? "bg-[#444040] text-white": "bg-white  text-black"} w-[250px] rounded-lg h-[280px] m-2 hover:border-2 border-solid border-neutral-800 shadow-lg`}
+                className={`${mode ? "bg-[#444040] text-white": "bg-white  text-black"} w-[250px] rounded-lg h-[315px] m-2 hover:border-2 border-solid border-neutral-800 shadow-lg`}
                 to={"restaurant/" + restaurant.info.id}
                 key={restaurant.info.id}
               >

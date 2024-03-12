@@ -11,6 +11,8 @@ import ThemeContext from "./utils/ThemeContext";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -24,6 +26,13 @@ const AppLayout = () => {
     <ThemeContext.Provider value={{mode:themeMode, setThemeMode}}>
     <div className="app">
       <Header />
+      <ToastContainer 
+      position="top-center"
+      autoClose={1000}
+      theme={themeMode ? "dark": "light"}
+      hideProgressBar
+      pauseOnHover={false}
+      />
       <Outlet />
     </div>
     </ThemeContext.Provider>

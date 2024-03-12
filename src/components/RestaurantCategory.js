@@ -17,7 +17,7 @@ const RestaurantCategory = ({
   };
 
   return (
-    <div className=" w-[50%] p-3 m-2 border-y-2 cursor-pointer shadow-lg bg-gray-50   ">
+    <div className=" w-[50%] p-3 m-2 border-y-2 cursor-pointer shadow-lg bg-gray-50">
       <div
         className="flex justify-between items-center"
         onClick={handleCategory}
