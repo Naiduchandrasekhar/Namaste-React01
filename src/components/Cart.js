@@ -4,6 +4,7 @@ import ItemList from "./ItemList";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {clearCart} from "../store/cartSlice"
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { mode } = useContext(ThemeContext);
@@ -25,12 +26,18 @@ const Cart = () => {
       <div className="text-center">
         {items.length > 0 ? (
           <div>
-            <button className="border-2 bg-gray-200 p-1 w-[100px] rounded-lg" onClick={() => {dispatch(clearCart()) }}>Clear Cart</button>
+            <button className="border-2 bg-gray-200 p-1 w-[100px] rounded-lg" onClick={() => {
+              dispatch(clearCart())
+              toast.info("Cart 🛒 is Cleared Successfully")
+             }}
+              >Clear Cart
+              </button>
             <ItemList items={items} />
           </div>
         ) : (
           <div>
-            <Link to="/" className="border-2 p-2 hover:bg-gray-200">
+            <h1 className="mb-4"> Cart is empty 🛒 </h1>
+            <Link to="/" className="border-2 p-2 hover:bg-gray-200 text-gray-500">
               See restaurants near you
             </Link>
           </div>

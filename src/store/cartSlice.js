@@ -8,12 +8,12 @@ const cartSlice = createSlice({
     },
     reducers:{
         addItem: (state, action) => { 
-            const cartItem = state.items.find(
-                (item) => item.card.info.id === action.payload.card.info.id
+            const cartItem = state.items.findIndex(
+                (item) => item?.card?.info?.id === action.payload.card.info.id
                 )
-            if(cartItem) {
-                //console.log(current(cartItem));
-                cartItem.quantity++ 
+            if(cartItem !== - 1) {
+                console.log("kk",current(state.items));
+              state.items[cartItem].quantity++ 
             }  else {
                 state.items.push({...action.payload, quantity:1})
                 state.totalItemCount++  

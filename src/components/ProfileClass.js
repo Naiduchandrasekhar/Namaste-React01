@@ -1,10 +1,10 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
 
 class ProfileClass extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            count:100,
             gitData: {}
         }
         console.log("Parent constructor");
@@ -24,42 +24,21 @@ class ProfileClass extends React.Component{
         console.log("componentWillUnmount");
         
     }
-    
 
-    handleStart(){
-        this.timerId = setInterval(() => {
-            console.log("renderinggggggggggggg");
-            this.setState((prevState) => ({
-                count: prevState.count- 1 
-               }))
-        }, 1000)
-        document.querySelector(".startBTN").setAttribute("disabled", true)
-    }
-
-
-    handleStop(){
-        document.querySelector(".startBTN").removeAttribute("disabled")
-        clearInterval(this.timerId)
-    }
 
     render(){
-        if(this.state.count === 0){
-            clearInterval(this.timerId)
-            document.querySelector(".startBTN").removeAttribute("disabled")
-        }
         console.log("render constructor");
         const {name, role, location} = this.props
 
         const {avatar_url} = this.state.gitData
         return(
-            <div>
-                <img src={avatar_url} alt="chandu" />
+            <div className="pt-16 h-[100vh]  flex flex-col justify-center items-center gap-5 font-serif">
+                <img src={avatar_url} className="h-[250px] rounded-full" alt="chandu" />
                 <h2>Name: {name}</h2>
                 <h2>Role: {role}</h2>
                 <h2>Location:  {location}</h2>
-                <h2>Count: {this.state.count}</h2>
-                <button className="startBTN" onClick={() =>this.handleStart()}>Start</button>
-                <button onClick={() =>this.handleStop()}>Stop</button>
+                <h2>Working: WNS Global Services</h2>
+                <a href="https://github.com/Naiduchandrasekhar" target="_blank" className="flex items-center hover:cursor-pointer" > <FaGithub /> <span className="ml-1">Github Profile</span> </a>
             </div>
         )
     }
