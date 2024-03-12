@@ -47,7 +47,7 @@ const ItemList = ({ items }) => {
               <button className="bg-gray-400 p-1 m-auto w-[75%] rounded-md">
                 <span>
                   {eachItemQuantity.find(
-                    (ele) => ele.card.info.id === item.card.info.id
+                    (ele) => ele?.card?.info?.id === item?.card?.info?.id
                   ) ? (
                     <div className="flex justify-between items-center">
                       <span
